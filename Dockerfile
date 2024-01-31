@@ -2,7 +2,7 @@ FROM ruby:3.2.2
 
 RUN apt-get update -qq \
   && apt-get install -qq --no-install-recommends \
-    postgresql-client redis-tools libvips42 vim -y ca-certificates curl gnupg graphviz \
+  postgresql-client redis-tools libvips42 vim -y ca-certificates curl gnupg graphviz \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /etc/apt/keyrings \
@@ -29,4 +29,4 @@ ENTRYPOINT ["/app/bin/docker-entrypoint-web"]
 
 EXPOSE 3000
 
-CMD "bin/dev"
+SHELL [ "bin/dev" ]
