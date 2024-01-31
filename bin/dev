@@ -1,17 +1,10 @@
 #!/usr/bin/env bash
 
-# Check if the 'overmind' command is available
-if [ -x "$(command -v overmind)" ]; then
-  # If 'overmind' is available, start the development environment using it
+bin/link
+
+if [ -x "$(command -v overmind)" ]
+then
   overmind start -f Procfile.dev "$@"
 else
-  # If 'overmind' is not available, check if 'foreman' is available
-  if [ -x "$(command -v foreman)" ]; then
-    # If 'foreman' is available, start the development environment using it
-    foreman start -f Procfile.dev "$@"
-  else
-    # If neither 'overmind' nor 'foreman' is available, display an error message
-    echo "Error: Neither 'overmind' nor 'foreman' is installed. Please install one of them."
-    exit 1
-  fi
+  foreman start -f Procfile.dev "$@"
 fi
