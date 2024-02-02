@@ -29,4 +29,4 @@ ENTRYPOINT ["/app/bin/docker-entrypoint-web"]
 
 EXPOSE 3000
 
-SHELL [ "bin/dev" ]
+CMD "bin/dev"
